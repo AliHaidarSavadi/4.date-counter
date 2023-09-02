@@ -6,6 +6,10 @@ function App() {
   const date = new Date();
   date.setDate(date.getDate() + count);
 
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  setInterval(() => setCurrentTime(new Date()), 1000);
+
   return (
     <div style={{ textAlign: "center" }}>
       <div className="step">
@@ -26,6 +30,9 @@ function App() {
             ? `${Math.abs(count)} days ago was ${date.toDateString()}`
             : `Today is ${date.toDateString()}`}
         </strong>
+        <br />
+        {currentTime.getHours()}:{currentTime.getMinutes()}:
+        {currentTime.getSeconds()}
       </p>
     </div>
   );
