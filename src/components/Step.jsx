@@ -1,17 +1,14 @@
 import { useState } from "react";
 import Count from "./Count";
 
-export default function Step() {
-  const [step, setStep] = useState(1);
-
+export default function Step({ step, handleSetStep }) {
   return (
-    <>
-      <div className="step">
-        <button onClick={() => setStep((s) => (s > 1 && s - 1) || s)}>-</button>
-        <strong>Step: {step}</strong>
-        <button onClick={() => setStep((s) => s + 1)}>+</button>
-      </div>
-      <Count step={step} />
-    </>
+    <div className="step">
+      <button onClick={() => handleSetStep((s) => (s > 1 && s - 1) || s)}>
+        -
+      </button>
+      <strong>Step: {step}</strong>
+      <button onClick={() => handleSetStep((s) => s + 1)}>+</button>
+    </div>
   );
 }

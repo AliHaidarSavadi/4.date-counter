@@ -1,16 +1,12 @@
 import { useState } from "react";
 import Message from "./Message";
 
-export default function Count({ step }) {
-  const [count, setCount] = useState(0);
+export default function Count({ step, count, handleSetCount }) {
   return (
-    <>
-      <div className="count">
-        <button onClick={() => setCount((c) => c - step)}>-</button>
-        <strong>Count: {count}</strong>
-        <button onClick={() => setCount((c) => c + step)}>+</button>
-      </div>
-      <Message count={count} />
-    </>
+    <div className="count">
+      <button onClick={() => handleSetCount((c) => c - step)}>-</button>
+      <strong>Count: {count}</strong>
+      <button onClick={() => handleSetCount((c) => c + step)}>+</button>
+    </div>
   );
 }
