@@ -1,9 +1,14 @@
-export default function Step({ step, addStep, subtractStep }) {
+export default function Step({ step, addStep }) {
   return (
     <div className="step">
-      <button onClick={subtractStep}>-</button>
-      <strong>Step: {step}</strong>
-      <button onClick={addStep}>+</button>
+      <input
+        type="range"
+        min="1"
+        max="10"
+        value={step}
+        onChange={(e) => addStep(Number(e.target.value))}
+      />
+      <strong>{step}</strong>
     </div>
   );
 }
