@@ -1,14 +1,9 @@
-import { useState } from "react";
-import Count from "./Count";
-
-export default function Step({ step, handleSetStep }) {
+export default function Step({ step, addStep, subtractStep }) {
   return (
     <div className="step">
-      <button onClick={() => handleSetStep((s) => (s > 1 && s - 1) || s)}>
-        -
-      </button>
+      <button onClick={subtractStep}>-</button>
       <strong>Step: {step}</strong>
-      <button onClick={() => handleSetStep((s) => s + 1)}>+</button>
+      <button onClick={addStep}>+</button>
     </div>
   );
 }
